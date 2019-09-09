@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
+		<style type="text/css">
+			div{
+		     	font-size: 1rem;
+			}
+			/*#info{
+			  font-size: 1rem;	
+			  margin-top: 2rem;
+			}*/
+		</style>
+		<script type="text/javascript">
+			console.log(666666)
+//			console.log(document.documentElement.style.fontSize)
+//			window.onload = function(){
+//				let width = document.documentElement.clientWidth;
+//				let rem = width/750*100*2;
+//				document.documentElement.style.fontSize =rem;
+//			}
+//			let i = 1;
+//			(function(){
+//				i +=i
+//				console.log(i)
+//			})()
+
+(function (win, doc) {
+    if (!win.addEventListener) return;
+    var html = document.documentElement;
+
+    function setFont() {
+        var cliWidth = html.clientWidth;
+        if(cliWidth > 750){
+            cliWidth  = 750;
+         }
+        html.style.fontSize = 100 * (cliWidth / 750) *2 + 'px';
+    }
+
+    win.addEventListener('resize', setFont, false) 
+    doc.addEventListener('DOMContentLoaded', setFont, false)
+})(window, document);
+
+		</script>
+	</head>
+	<body>
+		<div id="">
+			冯绍峰的速度
+		</div>
+		<div id="info">
+			{{a}}
+		</div>
+	</body>
+	<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#info',
+			data:{
+				a:1,
+				b:2
+			}
+		})
+	</script>
+</html>
